@@ -2,9 +2,11 @@ body{
     background: url(https://www.morfinmagic.com/html/images/Background%20Old%20Paper%201200x1815.jpg);
     background-size: cover;
     color:#000022;
-    text-emphasis: opacity;
     padding: 75px 25px;
 }
 .jumbotron{
     background-color: rgba(255, 255, 255, 0.5);
+}
+.form-group{
+    padding: 0 1em;
 }
