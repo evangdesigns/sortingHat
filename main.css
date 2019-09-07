@@ -3,4 +3,8 @@ body{
     background-size: cover;
     color:#000022;
     text-emphasis: opacity;
+    padding: 75px 25px;
+}
+.jumbotron{
+    background-color: rgba(255, 255, 255, 0.5);
 }
