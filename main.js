@@ -7,7 +7,7 @@ const printToDom = (divId, textToPrint) => {
   };
 
   const showForm = () => {
-    let domString = `
+    const domString = `
         <div class="jumbotron">
         <h3>Enter First Year's Name</h3>
             <form class="form-inline row d-flex justify-content-center">
@@ -19,7 +19,7 @@ const printToDom = (divId, textToPrint) => {
                         <input type="text" class="form-control form-control-lg mb-2" id="name" placeholder="Drako Malfoy">
                     </div>
                     <div class="col-3">
-                        <button type="submit" class="form-control-lg btn btn-primary btn-lg">&nbsp;&nbsp;&nbsp;&nbsp;Sort!&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <a class="btn btn-primary btn-lg" href="#" role="button" id="srtBtn">SORT</a>
                     </div>
                 </div>
             </form>
@@ -29,6 +29,29 @@ const printToDom = (divId, textToPrint) => {
     };
 
 const getStarted = document.getElementById('getStarted');
-getStarted.addEventListener('click', function() { 
+getStarted.addEventListener('click', () => { 
     showForm()
 });
+
+const houses = [Gryffindor, Slytherin, Ravenclaw, Hufflepuff];
+
+// const studentCorral = [
+//     {
+//         name: `${studentName}`,
+//         house: `${studentHouse}`
+//     }
+// ]
+
+//Listen for Sort button Click. Grab the name and store in a variable
+const sortForm = document.getElementById('sortForm');
+    sortForm.addEventListener('click', (event) => { 
+    if (event.target.id === 'srtBtn') {
+       studentName = document.getElementById('name').value;
+    //run randomizer  
+    }
+    }
+
+
+//add to studentCorral Array
+
+//PrintToDom
