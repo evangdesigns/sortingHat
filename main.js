@@ -34,41 +34,41 @@ getStarted.addEventListener('click', () => {
 });
 
 const houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff'];
-
-// const studentCorral = [
-//     {
-//         name: `${studentName}`,
-//         house: `${studentHouse}`
-//     }
-// ]
+const studentCorral = []
 
 //Listen for Sort button Click. Grab the name and store in a variable
-
 const sortForm = document.getElementById('sortForm');
 sortForm.addEventListener('click', (event) => { 
     if (event.target.id === 'srtBtn') {
-    studentName = document.getElementById('name').value;
-    //run randomizer 
-    console.log(studentName);
+    let studentName = document.getElementById('name').value;
+    //Randomize the House
+    let house = houses[Math.floor(Math.random()*houses.length)];
+    //Make an Object
+    const newStudent = {
+        name: studentName,
+        house: house
     };
-});
-//SyudentCard
+    //Push to Array
+    studentCorral.push(newStudent);
 
-const studentCard = () => {
-    innerHTML = `
-    <div class="studentCard card text-center" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${studentName}</h5>
-            <p class="card-text">${houses[2]}</p>
-            <button class="btn btn-primary">EXPEL</button>
-        </div>
-    </div>
-    `
-};    
-
-const getStudent = document.getElementById('srtBtn');
-getStudent.addEventListener('click', () => { 
-    studentCard()
-});
-//add to studentCorral Array
-//PrintToDom
+    studentCard(studentCorral)
+    };
+});   
+    
+    //Build the cards with what's in the Array
+    const studentCard = (studentCorralArr) => {
+    let domString = ''
+    for (let i = 0; i < studentCorralArr.length; i ++) {
+        const students = studentCorralArr[i]
+        domString += `
+            <div class="studentCard card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${students.name}</h5>
+                    <p class="card-text">${students.house}</p>
+                    <button class="btn btn-primary">EXPEL</button>
+                </div>
+            </div>
+        `
+    }
+    printToDom('studentCorral', domString);
+    }
