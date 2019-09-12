@@ -33,25 +33,42 @@ getStarted.addEventListener('click', () => {
     showForm()
 });
 
-const houses = [Gryffindor, Slytherin, Ravenclaw, Hufflepuff];
-
-// const studentCorral = [
-//     {
-//         name: `${studentName}`,
-//         house: `${studentHouse}`
-//     }
-// ]
+const houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff'];
+const studentCorral = []
 
 //Listen for Sort button Click. Grab the name and store in a variable
 const sortForm = document.getElementById('sortForm');
-    sortForm.addEventListener('click', (event) => { 
+sortForm.addEventListener('click', (event) => { 
     if (event.target.id === 'srtBtn') {
-       studentName = document.getElementById('name').value;
-    //run randomizer  
+    let studentName = document.getElementById('name').value;
+    //Randomize the House
+    let house = houses[Math.floor(Math.random()*houses.length)];
+    //Make an Object
+    const newStudent = {
+        name: studentName,
+        house: house
+    };
+    //Push to Array
+    studentCorral.push(newStudent);
+
+    studentCard(studentCorral)
+    };
+});   
+    
+    //Build the cards with what's in the Array
+    const studentCard = (studentCorralArr) => {
+    let domString = ''
+    for (let i = 0; i < studentCorralArr.length; i ++) {
+        const students = studentCorralArr[i]
+        domString += `
+            <div class="studentCard card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${students.name}</h5>
+                    <p class="card-text">${students.house}</p>
+                    <button class="btn btn-primary">EXPEL</button>
+                </div>
+            </div>
+        `
     }
+    printToDom('studentCorral', domString);
     }
-
-
-//add to studentCorral Array
-
-//PrintToDom
