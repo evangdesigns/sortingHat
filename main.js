@@ -52,7 +52,9 @@ sortForm.addEventListener('click', (event) => {
     studentCorral.push(newStudent);
 
     studentCard(studentCorral)
+    
     };
+    document.getElementById('name').value = '';
 });   
     
     //Build the cards with what's in the Array
@@ -61,7 +63,7 @@ sortForm.addEventListener('click', (event) => {
     for (let i = 0; i < studentCorralArr.length; i ++) {
         const students = studentCorralArr[i]
         domString += `
-            <div class="studentCard card text-center" style="width: 18rem;">
+            <div class="studentCard card text-center" style="width: 18em;">
                 <div class="card-body">
                     <h5 class="card-title">${students.name}</h5>
                     <p class="card-text">${students.house}</p>
