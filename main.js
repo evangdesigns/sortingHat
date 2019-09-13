@@ -63,14 +63,24 @@ sortForm.addEventListener('click', (event) => {
     for (let i = 0; i < studentCorralArr.length; i ++) {
         const students = studentCorralArr[i]
         domString += `
-            <div class="studentCard card text-center" style="width: 18em;">
+            <div class="studentCard card text-center ${students.house}" id="student-${studentCorral[i]}"style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${students.name}</h5>
                     <p class="card-text">${students.house}</p>
-                    <button class="btn btn-primary">EXPEL</button>
+                    <button class="btn btn-primary" id="expel-${studentCorral[i]}">EXPEL</button>
                 </div>
             </div>
         `
-    }
+    };
     printToDom('studentCorral', domString);
+    };
+
+    const expel = document.getElementById('student-`${studentCorral[i]}`');
+    expel.addEventListener('click', (event) => { 
+        if (event.target.id.includes(${studentCorral[i]}) {
+            if ( arr[i] === studentCorral[i]) {
+                studentCorral.splice(studentCorral[i]); 
+                i--;
+              }
     }
+};
