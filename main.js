@@ -63,24 +63,29 @@ sortForm.addEventListener('click', (event) => {
     for (let i = 0; i < studentCorralArr.length; i ++) {
         const students = studentCorralArr[i]
         domString += `
-            <div class="studentCard card text-center ${students.house}" id="student-${studentCorral[i]}"style="width: 18rem;">
+            <div class="studentCard card text-center ${students.house}" id="${students.name}" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${students.name}</h5>
                     <p class="card-text">${students.house}</p>
-                    <button class="btn btn-primary" id="expel-${studentCorral[i]}">EXPEL</button>
+                    <button class="btn btn-primary expel">EXPEL</button>
                 </div>
             </div>
         `
     };
     printToDom('studentCorral', domString);
+    ExpelEvents();
     };
-
-    const expel = document.getElementById('student-`${studentCorral[i]}`');
-    expel.addEventListener('click', (event) => { 
-        if (event.target.id.includes(${studentCorral[i]}) {
-            if ( arr[i] === studentCorral[i]) {
-                studentCorral.splice(studentCorral[i]); 
-                i--;
-              }
-    }
-};
+    const ExpelEvents = () => {
+        const expelbuttons = document.getElementsByClassName("expel");
+        for(i = 0; i < expelbuttons.length; i++){
+            expelbuttons[i].addEventListener("click", function(event) {
+                const expelStudentName = event.target.parentNode.parentNode.id;
+                for (let i = 0; i < studentCorral.length; i++) {
+                    if (expelStudentName === studentCorral[i].name) {
+                        studentCorral.splice(i, 1);
+                        studentCard(studentCorral);
+                    }
+                }
+            })
+        }
+     }
