@@ -4,7 +4,7 @@
 Use this application to sort you and your friends into your Hogwarts School Houses.
 
 ## Screenshots
-![Sortin Hat Preview]()
+![Sortin Hat Preview](https://github.com/evangdesigns/sortingHat/blob/master/screenshots/sortinHat.png?raw=true)
 
 ## How-2-Run
 * Clone down this repo
